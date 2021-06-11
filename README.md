@@ -20,3 +20,4 @@ we update the generator and the discriminator alternatively.
 
 - [Deep Learning and Visual Question Answering](https://towardsdatascience.com/deep-learning-and-visual-question-answering-c8c8093941bc) 
 - [Generative Neural Network Based Image Compression](http://cs229.stanford.edu/proj2018/report/44.pdf) 
+- [VQA](https://modelzoo.co/model/vqapytorch#pretrained-models)
