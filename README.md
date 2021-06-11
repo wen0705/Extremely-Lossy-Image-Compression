@@ -12,7 +12,7 @@ The generator takes the original images and then compresses them into few hundre
 Input: 
 a batch of images (original images with the question created by VQA) and a binary that showed that the image is reconstructed or not.
 
-The discriminator classifier the input images as original images or the reconstruction images.
+The discriminator classifies the input images as original images or the reconstruction images.
 
 we update the generator and the discriminator alternatively.
 
