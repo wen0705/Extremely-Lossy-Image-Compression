@@ -22,3 +22,4 @@ we update the generator and the discriminator alternatively.
 - [Generative Neural Network Based Image Compression](http://cs229.stanford.edu/proj2018/report/44.pdf) 
 - [VQA](https://modelzoo.co/model/vqapytorch#pretrained-models)
 - [VAE introduction](https://www.tensorflow.org/tutorials/generative/cvae)
+- [easy-VQA](https://easy-vqa-demo.victorzhou.com/)
