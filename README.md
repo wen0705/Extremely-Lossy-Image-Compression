@@ -29,7 +29,8 @@ we update the generator and the discriminator alternatively.
 
 - [VQA](https://modelzoo.co/model/vqapytorch#pretrained-models)
 - [easy-VQA](https://easy-vqa-demo.victorzhou.com/)
-- [another](https://github.com/YIKUAN8/Transformers-VQA/blob/master/openI_VQA.ipynb)
+- [Transformers-VQA](https://github.com/YIKUAN8/Transformers-VQA/blob/master/openI_VQA.ipynb)
+- [VisualBert](https://github.com/uclanlp/visualbert)
 
 ## Dataset
 - [Coco](https://cocodataset.org/)
