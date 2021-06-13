@@ -20,6 +20,7 @@ we update the generator and the discriminator alternatively.
 
 - [Deep Learning and Visual Question Answering](https://towardsdatascience.com/deep-learning-and-visual-question-answering-c8c8093941bc) 
 - [Official-site VQA](https://visualqa.org/)
+- [VQA data reading tools(for evaluation and reading)](https://github.com/GT-Vision-Lab/VQA)
 - [VQA: Visual Question Answering (ICCV 2015)](https://arxiv.org/pdf/1505.00468.pdf)
 - [Generative Neural Network Based Image Compression](http://cs229.stanford.edu/proj2018/report/44.pdf) 
 - [VAE introduction](https://www.tensorflow.org/tutorials/generative/cvae)
