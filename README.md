@@ -28,6 +28,7 @@ we update the generator and the discriminator alternatively.
 
 ## pretrained Model
 
+- [ns-VQA【current testing...】](https://github.com/kexinyi/ns-vqa)
 - [VQA](https://modelzoo.co/model/vqapytorch#pretrained-models)
 - [easy-VQA](https://easy-vqa-demo.victorzhou.com/)
 - [Transformers-VQA](https://github.com/YIKUAN8/Transformers-VQA/blob/master/openI_VQA.ipynb)
