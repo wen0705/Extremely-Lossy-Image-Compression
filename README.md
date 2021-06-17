@@ -34,5 +34,8 @@ we update the generator and the discriminator alternatively.
 - [Transformers-VQA](https://github.com/YIKUAN8/Transformers-VQA/blob/master/openI_VQA.ipynb)
 - [VisualBert](https://github.com/uclanlp/visualbert)
 
+## image compression
+-- [image compression and code](https://github.com/zhiqiang-zhu/Image-Compression-Papers-and-Code)
+
 ## Dataset
 - [Coco](https://cocodataset.org/)
