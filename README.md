@@ -1,10 +1,41 @@
 # Extreme_Lossy-_Image_Compression
 
-# Basic Idea:
-VAE-GAN introduced by Larsen [1] presents a model which uses learned feature representations in the GAN discriminator as a basis for the VAE reconstruction objective.Based on their research and the 'Two-Player Game' idea in GAN, we use the following model as shown in Figure 1 to compress the images in a lossy way.
+## Basic Idea:
+VAE-GAN introduced by Larsen [MAIN Algo] presents a model which uses learned feature representations in the GAN discriminator as a basis for the VAE reconstruction objective.Based on their research and the 'Two-Player Game' idea in GAN, we use the following model as shown in Figure 1 to compress the images in a lossy way.
 In this model, we collapse the decoder and the generator into one to reconstruct less blurry images. We place the VQA network in our discriminator to score the reconstruction images. After a few steps, the decoder can generator the images with clear relevant information based on the questions of VQA.
 
 ![Figure](https://github.com/wen0705/Extreme_Lossy-_Image_Compression/blob/main/mini-program/figure.png)
+
+## Figure explanation:
+As shown in the Figure above, Input $X$ consists of a batch of images stored in a tensor. After some convolution networks (3 layers for instance), our encoder compresses the original input into the latent low-dimensional code Z which only contains few hundred bits sized tensor.
+
+To approximate the best true distribution $p_{data}(Z|X)$ of $Z$, we form a distribution $p_{model}(Z|X)$, which will be learned through a Gaussian-distribution $\mathcal{N}(\mu,\Sigma)$.where $\mu$,$\Sigma$ represent the mean of encoded data and the covariance (represents Noise) respectively. These two parameters will be learned with two fully connected networks from the latent variable $Z$. 
+
+We use Kullback-Leibler divergence$(1)$ between the encoder’s distribution $p_{model}(Z)$ and $p{data}(Z|X)$ to present the loss $L_{prior}$. This divergence measures how much information is lost when use $p_{model}(Z)$ to represent $p_{data}(Z|X)$. Then we sample $Z_p$ from this distribution.
+\begin{align}
+    L_{prior} = \mathbb{KL}(p_{data}(Z|X)|p_{model}(Z))
+\end{align}
+
+The discriminator consists of a fixed stable VQA module, which presents the probable feature extraction, and a classification network $C$ which assigns one to samples from $p_{data}(X)$ and zero to samples from $p_{decoded}(X|Z)$.
+Define $C_{r}$ as the layer which denotes the probability of the image being original. This probability distribution from $C_r$ is the approximation of $p_{data}(X)$. 
+
+Define $Y$ as the hidden representation in the layer $C_r$.
+
+Given the discriminator $X,\hat{X},X_p$ as input and collect the corresponding $Y$: 
+$$X\rightarrow Y, \hat{X}\rightarrow \hat{Y}, X_p\rightarrow Y_p$$
+The correspondence losses $L_{GAN}$ and $L_{Disc}$ are defined as follows:
+\begin{align}
+    L_{GAN}  &= log(Y) + log(1-\hat{Y}) + log(1-Y_p)\\
+    L_{disc} &= -\mathbb{E}_{p_{model}(Z|X)}[\log p_{decoded}(Y|Z)]
+\end{align}
+
+Back-propagation: We use the partial derivation of $L_{prior} + L_{disc}$ to update parameters in Encoder, use the partial derivation of $\gamma L_{disc} - L_{GAN}$ to update parameters in Decoder and use  the partial derivation of $L_{GAN}$ to update the parameters in Discriminator.
+
+
+## Current Status:
+-  We settled the basic structure of our network and most of our loss functions. Also we filtered out a reference-valuable existed algorithm and understand the proof process.
+-  We tried to build a VAE demo with \texttt{pytorch}. [processing]
+-  We tried to find$\setminus$train a stable high quality network. [encountered problem with GPU,CUDA,CUDNN,torch conflict]
 
 
 ## References
@@ -25,12 +56,9 @@ In this model, we collapse the decoder and the generator into one to reconstruct
 
 - [ns-VQA【current testing...】](https://github.com/kexinyi/ns-vqa)
 - [VQA](https://modelzoo.co/model/vqapytorch#pretrained-models)
-- [easy-VQA](https://easy-vqa-demo.victorzhou.com/)
-- [Transformers-VQA](https://github.com/YIKUAN8/Transformers-VQA/blob/master/openI_VQA.ipynb)
-- [VisualBert](https://github.com/uclanlp/visualbert)
+
 
 ## image compression
--- [image compression and code](https://github.com/zhiqiang-zhu/Image-Compression-Papers-and-Code)
+- [image compression and code](https://github.com/zhiqiang-zhu/Image-Compression-Papers-and-Code)
 
-## Dataset
-- [Coco](https://cocodataset.org/)
+
