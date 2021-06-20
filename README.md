@@ -4,6 +4,8 @@
 VAE-GAN introduced by Larsen [1] presents a model which uses learned feature representations in the GAN discriminator as a basis for the VAE reconstruction objective.Based on their research and the 'Two-Player Game' idea in GAN, we use the following model as shown in Figure 1 to compress the images in a lossy way.
 In this model, we collapse the decoder and the generator into one to reconstruct less blurry images. We place the VQA network in our discriminator to score the reconstruction images. After a few steps, the decoder can generator the images with clear relevant information based on the questions of VQA.
 
+![Figure](https://github.com/wen0705/Extreme_Lossy-_Image_Compression/blob/main/mini-program/figure.png)
+
 
 ## References
 
