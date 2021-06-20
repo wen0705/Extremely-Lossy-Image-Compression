@@ -7,19 +7,16 @@ In this model, we collapse the decoder and the generator into one to reconstruct
 ![Figure](https://github.com/wen0705/Extreme_Lossy-_Image_Compression/blob/main/mini-program/figure.png)
 
 ## Figure explanation:
-As shown in the Figure above, Input $X$ consists of a batch of images stored in a tensor. After some convolution networks (3 layers for instance), our encoder compresses the original input into the latent low-dimensional code Z which only contains few hundred bits sized tensor.
+As shown in the Figure above, Input X consists of a batch of images stored in a tensor. After some convolution networks (3 layers for instance), our encoder compresses the original input into the latent low-dimensional code Z which only contains few hundred bits sized tensor.
 
-To approximate the best true distribution $p_{data}(Z|X)$ of $Z$, we form a distribution $p_{model}(Z|X)$, which will be learned through a Gaussian-distribution $\mathcal{N}(\mu,\Sigma)$.where $\mu$,$\Sigma$ represent the mean of encoded data and the covariance (represents Noise) respectively. These two parameters will be learned with two fully connected networks from the latent variable $Z$. 
+To approximate the best true distribution  of Z, we form a distribution p<sub>model</sub>(Z|X), which will be learned through a Gaussian-distribution.
 
-We use Kullback-Leibler divergence$(1)$ between the encoder’s distribution $p_{model}(Z)$ and $p{data}(Z|X)$ to present the loss $L_{prior}$. This divergence measures how much information is lost when use $p_{model}(Z)$ to represent $p_{data}(Z|X)$. Then we sample $Z_p$ from this distribution.
-\begin{align}
-    L_{prior} = \mathbb{KL}(p_{data}(Z|X)|p_{model}(Z))
-\end{align}
+We use Kullback-Leibler divergence between the encoder’s distribution p<sub>model</sub>(Z) and p<sub>data</sub>(Z|X) to present the loss L<sub>prior</sub>. This divergence measures how much information is lost when use $p<sub>model</sub>(Z)$ to represent $p<sub>data</sub>(Z|X)$. Then we sample $Z_p$ from this distribution.
 
 The discriminator consists of a fixed stable VQA module, which presents the probable feature extraction, and a classification network $C$ which assigns one to samples from $p_{data}(X)$ and zero to samples from $p_{decoded}(X|Z)$.
 Define $C_{r}$ as the layer which denotes the probability of the image being original. This probability distribution from $C_r$ is the approximation of $p_{data}(X)$. 
 
-Define $Y$ as the hidden representation in the layer $C_r$.
+Define Y as the hidden representation in the layer \subC_r.
 
 Given the discriminator $X,\hat{X},X_p$ as input and collect the corresponding $Y$: 
 $$X\rightarrow Y, \hat{X}\rightarrow \hat{Y}, X_p\rightarrow Y_p$$
