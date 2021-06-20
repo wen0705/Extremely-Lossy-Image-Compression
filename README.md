@@ -4,7 +4,7 @@
 VAE-GAN introduced by Larsen [MAIN Algo] presents a model which uses learned feature representations in the GAN discriminator as a basis for the VAE reconstruction objective.Based on their research and the 'Two-Player Game' idea in GAN, we use the following model as shown in Figure 1 to compress the images in a lossy way.
 In this model, we collapse the decoder and the generator into one to reconstruct less blurry images. We place the VQA network in our discriminator to score the reconstruction images. After a few steps, the decoder can generator the images with clear relevant information based on the questions of VQA.
 
-![Figure](https://github.com/wen0705/Extreme`_L`ossy-_Image_Compression/blob/main/mini-program/figure.png)
+![Figure](https://github.com/wen0705/Extreme_Lossy-_Image_Compression/blob/main/mini-program/figure.png)
 
 ## Figure explanation:
 As shown in the Figure above, Input X consists of a batch of images stored in a tensor. After some convolution networks (3 layers for instance), our encoder compresses the original input into the latent low-dimensional code Z which only contains few hundred bits sized tensor.
@@ -18,17 +18,17 @@ Define C<sub>r</sub> as the layer which denotes the probability of the image bei
 
 Define Y as the hidden representation in the layer \subC<sub>r</sub>.
 
-Given the discriminator X,X<sub>hat</sub>,X<sub>p</sub> as input and collect the corresponding Y: 
-X\rightarrow Y, X<sub>hat</sub>\rightarrow Y<sub>hat</sub>, X<sub>p</sub>\rightarrow Y<sub>p</sub>
+Given the discriminator X,  X<sub>hat</sub>,  X<sub>p</sub> as input and collect the corresponding Y : 
+X --> Y, X<sub>hat</sub> --> Y<sub>hat</sub>, X<sub>p</sub> --> Y<sub>p</sub>
 The correspondence losses L<sub>GAN</sub> and L<sub>Disc</sub> are defined as follows:
 
-Back-propagation: We use the partial derivation of L<sub>prior</sub> + L<sub>disc</sub> to update parameters in Encoder, use the partial derivation of \gamma L<sub>disc</sub> - L<sub>GAN</sub> to update parameters in Decoder and use  the partial derivation of L<sub>GAN</sub> to update the parameters in Discriminator.
+Back-propagation: We use the partial derivation of L<sub>prior</sub> + L<sub>disc</sub> to update parameters in Encoder, use the partial derivation of r L<sub>disc</sub> - L<sub>GAN</sub> to update parameters in Decoder and use  the partial derivation of L<sub>GAN</sub> to update the parameters in Discriminator.
 
 
 ## Current Status:
 -  We settled the basic structure of our network and most of our loss functions. Also we filtered out a reference-valuable existed algorithm and understand the proof process.
--  We tried to build a VAE demo with \texttt{pytorch}. [processing]
--  We tried to find\setminustrain a stable high quality network. [encountered problem with GPU,CUDA,CUDNN,torch conflict]
+-  We tried to build a VAE demo with pytorch. [processing]
+-  We tried to find\train a stable high quality network. [encountered problem with GPU,CUDA,CUDNN,torch conflict]
 
 
 ## References
