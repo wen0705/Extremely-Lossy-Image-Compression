@@ -1,20 +1,9 @@
 # Extreme_Lossy-_Image_Compression
 
-In the domain of lossy image and, especially, video compression, classical (non machine-learning based) compression codecs are still somewhat difficult to outperform in the high-quality regime. By contrast, in the low-quality regime, it is often much easier to design a machine-learning based compression technique that is significantly better than any existing classical codec. In this project, you will take this idea to an extreme and you will explore a regime about which little is known so far: the regime of extremely low bit rate. Your goal is to compress images into just a few hundred bits in such a way that you can still reconstruct an image that has something in common with the original image, so that one can still use the reconstructed image to answer some basic questions like “How many red objects are there in the image?” or “What color is the ball next to the red cube?”.
+# Basic Idea:
+VAE-GAN introduced by Larsen [1] presents a model which uses learned feature representations in the GAN discriminator as a basis for the VAE reconstruction objective.Based on their research and the 'Two-Player Game' idea in GAN, we use the following model as shown in Figure 1 to compress the images in a lossy way.
+In this model, we collapse the decoder and the generator into one to reconstruct less blurry images. We place the VQA network in our discriminator to score the reconstruction images. After a few steps, the decoder can generator the images with clear relevant information based on the questions of VQA.
 
-# Basic idea:
-We want to build a neural network like the construction like the GAN. It consists of two deep neural networks called "generator" and the "discriminator".
-
-## "generator": 
-The generator takes the original images and then compresses them into few hundred bits. 
-
-## "discriminator":
-Input: 
-a batch of images (original images with the question created by VQA) and a binary that showed that the image is reconstructed or not.
-
-The discriminator classifies the input images as original images or the reconstruction images.
-
-we update the generator and the discriminator alternatively.
 
 ## References
 
