@@ -1,13 +1,11 @@
 # Extreme_Lossy-_Image_Compression
 
-## Basic Idea:
-VAE-GAN introduced by Larsen [MAIN Algo] presents a model which uses learned feature representations in the GAN discriminator as a basis for the VAE reconstruction objective.Based on their research and the 'Two-Player Game' idea in GAN, we use the following model as shown in Figure 1 to compress the images in a lossy way.
-In this model, we collapse the decoder and the generator into one to reconstruct less blurry images. We place the VQA network in our discriminator to score the reconstruction images. After a few steps, the decoder can generator the images with clear relevant information based on the questions of VQA.
+Nowadays, image compression plays a crucial role in our life. Lossy image compression can compress the image into only a few hundred bits. One of the drawbacks of lossy image compression is that some information from the original image is eliminated and can not be irreversible by reconstruction. Therefore, we want to achieve a good balance between the compression size and the image information quality. That is called extreme lossy compression. In this work, we present an architecture that can efficiently reconstruct the face region with correct genders from compressed one-person images.
 
-![Figure](https://github.com/wen0705/Extreme_Lossy-_Image_Compression/blob/main/mini-program/figure.png)
+![Figure](https://github.com/wen0705/Extreme_Lossy-_Image_Compression/blob/main/mini-program/model.png)
 
-## Figure explanation:
-As shown in the Figure above, Input X consists of a batch of images stored in a tensor. After some convolution networks (3 layers for instance), our encoder compresses the original input into the latent low-dimensional code Z which only contains few hundred bits sized tensor.
+## Result:
+We conduct both qualitative and quantitative comparisons of Vanilla VAE and our VAE. Due to our limited computing power on colab (one GPU with a limit using time), we only conducted 20 epoch for each module. According to \cite{Subramanian2020}, the minimum epoch number to converge is 50 for vanilla VAE, therefore, our result only shows a slight improvement compared to the Vanilla VAE, especially in quantitative analysis.
 
 To approximate the best true distribution  of Z, we form a distribution p<sub>model</sub>(Z|X), which will be learned through a Gaussian-distribution.
 
