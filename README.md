@@ -1,13 +1,13 @@
-# Extreme_Lossy-_Image_Compression
+# Extremely Lossy Image Compression
 
-Nowadays, image compression plays a crucial role in our life. Lossy image compression can compress the image into only a few hundred bits. One of the drawbacks of lossy image compression is that some information from the original image is eliminated and can not be irreversible by reconstruction. Therefore, we want to achieve a good balance between the compression size and the image information quality. That is called extreme lossy compression. In this work, we present an architecture that can efficiently reconstruct the face region with correct genders from compressed one-person images.
+Nowadays, image compression plays a crucial role in our life. Lossy image compression can compress the image into only a few hundred bits. One of the drawbacks of lossy image compression is that some information from the original image is eliminated and can not be recovered by reconstruction. Therefore, we want to achieve a good balance between the compression size and the image quality. In this work, we present an architecture that can efficiently reconstruct the face region with correct genders from compressed one-person images.
 
 ![Figure](https://github.com/wen0705/Extreme_Lossy-_Image_Compression/blob/main/mini-program/model.png)
 
 ## Result:
 We conduct both qualitative and quantitative comparisons of Vanilla VAE and our VAE. Due to our limited computing power on colab (one GPU with a limit using time), we only conducted 20 epoch for each module. According to \cite{Subramanian2020}, the minimum epoch number to converge is 50 for vanilla VAE, therefore, our result only shows a slight improvement compared to the Vanilla VAE, especially in quantitative analysis.
 
-To approximate the best true distribution  of Z, we form a distribution p<sub>model</sub>(Z|X), which will be learned through a Gaussian-distribution.
+<!-- To approximate the best true distribution  of Z, we form a distribution p<sub>model</sub>(Z|X), which will be learned through a Gaussian-distribution.
 
 We use Kullback-Leibler divergence between the encoder’s distribution p<sub>model</sub>(Z) and p<sub>data</sub>(Z|X) to present the loss L<sub>prior</sub>. This divergence measures how much information is lost when use p<sub>model</sub>(Z) to represent p<sub>data</sub>(Z|X). Then we sample Z<sub>p</sub> from this distribution.
 
@@ -20,13 +20,13 @@ Given the discriminator X,  X<sub>hat</sub>,  X<sub>p</sub> as input and collect
 X --> Y, X<sub>hat</sub> --> Y<sub>hat</sub>, X<sub>p</sub> --> Y<sub>p</sub>
 The correspondence losses L<sub>GAN</sub> and L<sub>Disc</sub> are defined as follows:
 
-Back-propagation: We use the partial derivation of L<sub>prior</sub> + L<sub>disc</sub> to update parameters in Encoder, use the partial derivation of r L<sub>disc</sub> - L<sub>GAN</sub> to update parameters in Decoder and use  the partial derivation of L<sub>GAN</sub> to update the parameters in Discriminator.
+Back-propagation: We use the partial derivation of L<sub>prior</sub> + L<sub>disc</sub> to update parameters in Encoder, use the partial derivation of r L<sub>disc</sub> - L<sub>GAN</sub> to update parameters in Decoder and use  the partial derivation of L<sub>GAN</sub> to update the parameters in Discriminator. -->
 
-
+<!-- 
 ## Current Status:
 -  We settled the basic structure of our network and most of our loss functions. Also we filtered out a reference-valuable existed algorithm and understand the proof process.
 -  We tried to build a VAE demo with pytorch. [processing]
--  We tried to find\train a stable high quality network. [encountered problem with GPU,CUDA,CUDNN,torch conflict]
+-  We tried to find\train a stable high quality network. [encountered problem with GPU,CUDA,CUDNN,torch conflict] -->
 
 
 ## References
