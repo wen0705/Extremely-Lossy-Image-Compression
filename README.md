@@ -5,7 +5,10 @@ Nowadays, image compression plays a crucial role in our life. Lossy image compre
 ![Figure](https://github.com/wen0705/Extreme_Lossy-_Image_Compression/blob/main/mini-program/model.png)
 
 ## Result:
-We conduct both qualitative and quantitative comparisons of Vanilla VAE and our VAE. Due to our limited computing power on colab (one GPU with a limit using time), we only conducted 20 epoch for each module. According to \cite{Subramanian2020}, the minimum epoch number to converge is 50 for vanilla VAE, therefore, our result only shows a slight improvement compared to the Vanilla VAE, especially in quantitative analysis.
+<!-- We conduct both qualitative and quantitative comparisons of Vanilla VAE and our VAE. Due to our limited computing power on colab (one GPU with a limit using time), we only conducted 20 epoch for each module. According to \cite{Subramanian2020}, the minimum epoch number to converge is 50 for vanilla VAE, therefore, our result only shows a slight improvement compared to the Vanilla VAE, especially in quantitative analysis. -->
+### Qualitative Analysis
+
+
 
 <!-- To approximate the best true distribution  of Z, we form a distribution p<sub>model</sub>(Z|X), which will be learned through a Gaussian-distribution.
 
@@ -17,10 +20,14 @@ Define C<sub>r</sub> as the layer which denotes the probability of the image bei
 Define Y as the hidden representation in the layer \subC<sub>r</sub>.
 
 Given the discriminator X,  X<sub>hat</sub>,  X<sub>p</sub> as input and collect the corresponding Y : 
-X --> Y, X<sub>hat</sub> --> Y<sub>hat</sub>, X<sub>p</sub> --> Y<sub>p</sub>
-The correspondence losses L<sub>GAN</sub> and L<sub>Disc</sub> are defined as follows:
+X --> 
+<!-- Y, X<sub>hat</sub> -->
+<!-- Y<sub>hat</sub>, X<sub>p</sub> --> 
+<!-- Y<sub>p</sub> --> 
+<!-- -->
+<!-- The correspondence losses L<sub>GAN</sub> and L<sub>Disc</sub> are defined as follows: -->
 
-Back-propagation: We use the partial derivation of L<sub>prior</sub> + L<sub>disc</sub> to update parameters in Encoder, use the partial derivation of r L<sub>disc</sub> - L<sub>GAN</sub> to update parameters in Decoder and use  the partial derivation of L<sub>GAN</sub> to update the parameters in Discriminator. -->
+<!-- Back-propagation: We use the partial derivation of L<sub>prior</sub> + L<sub>disc</sub> to update parameters in Encoder, use the partial derivation of r L<sub>disc</sub> - L<sub>GAN</sub> to update parameters in Decoder and use  the partial derivation of L<sub>GAN</sub> to update the parameters in Discriminator. -->
 
 <!-- 
 ## Current Status:
