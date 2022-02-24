@@ -9,13 +9,13 @@ Image Compression, VAE, Object detection
 <!-- We conduct both qualitative and quantitative comparisons of Vanilla VAE and our VAE. Due to our limited computing power on colab (one GPU with a limit using time), we only conducted 20 epoch for each module. According to \cite{Subramanian2020}, the minimum epoch number to converge is 50 for vanilla VAE, therefore, our result only shows a slight improvement compared to the Vanilla VAE, especially in quantitative analysis. -->
 #### Qualitative Analysis:
 **Positive effects:**
-![Figure](https://github.com/wen0705/Extreme_Lossy-_Image_Compression/blob/main/fig/advantage.png)
+![Figure](https://github.com/wen0705/Extreme_Lossy-_Image_Compression/blob/main/fig/advantage.jpg)
 - Our model reconstructs better face directions. The vanilla VAE only recognizes a small range of face rotation, so most reconstruction faces are frontal faces. But our model can capture the correct rotations and reconstruct them.
 - Our model reconstructs gender better that can be recognized by human eyes. Due to the interference from the background, face shape, or facial accessories, vanilla VAE makes more mistakes by reconstructing gender. Considering more of the face region, our model obtains less influence on the surrounding area (hair, background, etc.) and has better results.
 - Our model reconstructs the facial expression better. The vanilla VAE uses the same ”big smile” for the frontal face images and the same ”gentle smile” for the side faces. Therefore the reconstruction of facial expression in Vanilla VAE is highly related to the face directions rather than the facial expressions in the original images. At the expense of sharpness, our model can capture the facial expression directly from the original image.
 
 **Negative effects:**
-![Figure](https://github.com/wen0705/Extreme_Lossy-_Image_Compression/blob/main/fig/disadvantage.png)
+![Figure](https://github.com/wen0705/Extreme_Lossy-_Image_Compression/blob/main/fig/disadvantage.jpg)
 - Our model works worse on ethnicities other than Caucasians. To the human eyes, Vanilla VAE has better results for different races than our VAE. A possible reason is that the learning priority changed, which means that our model learns the facial expression of the Caucasians first, and 20 epochs are not enough for this model to learn it for all the races.
 - Our model is more sensitive to the light. These three images represent three extreme illumination situations. It shows that our model captures the illumination features of the original image better. However, our model produces less sharp reconstructions. Still, compared to Vanilla VAE, our reconstructions have more similar face regions to the original images.
 
