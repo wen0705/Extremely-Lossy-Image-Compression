@@ -1,12 +1,23 @@
 # Extremely Lossy Image Compression
 
-Nowadays, image compression plays a crucial role in our life. Lossy image compression can compress the image into only a few hundred bits. One of the drawbacks of lossy image compression is that some information from the original image is eliminated and can not be recovered by reconstruction. Therefore, we want to achieve a good balance between the compression size and the image quality. In this work, we present an architecture that can efficiently reconstruct the face region with correct genders from compressed one-person images.
+Nowadays, image compression plays a crucial role in our life. Lossy image compression can compress the image into only a few hundred bits. One of the drawbacks of lossy image compression is that some information from the original image is eliminated and can not be recovered by reconstruction. Therefore, we want to achieve a good balance between the compression size and the image quality. In this work, we present an architecture that can efficiently reconstruct the face region with correct genders from compressed one-person images. Our result shows a slight improvement compared to the Vanillia VAE.
 
 ![Figure](https://github.com/wen0705/Extreme_Lossy-_Image_Compression/blob/main/fig/model.png)
-
-## Result:
+**Key world:**
+Image Compression, VAE, Object detection
+### Result:
 <!-- We conduct both qualitative and quantitative comparisons of Vanilla VAE and our VAE. Due to our limited computing power on colab (one GPU with a limit using time), we only conducted 20 epoch for each module. According to \cite{Subramanian2020}, the minimum epoch number to converge is 50 for vanilla VAE, therefore, our result only shows a slight improvement compared to the Vanilla VAE, especially in quantitative analysis. -->
-### Qualitative Analysis
+#### Qualitative Analysis:
+**Positive effects:**
+![Figure](https://github.com/wen0705/Extreme_Lossy-_Image_Compression/blob/main/fig/advantage.png)
+- Our model reconstructs better face directions. The vanilla VAE only recognizes a small range of face rotation, so most reconstruction faces are frontal faces. But our model can capture the correct rotations and reconstruct them.
+- Our model reconstructs gender better that can be recognized by human eyes. Due to the interference from the background, face shape, or facial accessories, vanilla VAE makes more mistakes by reconstructing gender. Considering more of the face region, our model obtains less influence on the surrounding area (hair, background, etc.) and has better results.
+- Our model reconstructs the facial expression better. The vanilla VAE uses the same ”big smile” for the frontal face images and the same ”gentle smile” for the side faces. Therefore the reconstruction of facial expression in Vanilla VAE is highly related to the face directions rather than the facial expressions in the original images. At the expense of sharpness, our model can capture the facial expression directly from the original image.
+
+**Negative effects:**
+![Figure](https://github.com/wen0705/Extreme_Lossy-_Image_Compression/blob/main/fig/disadvantage.png)
+- Our model works worse on ethnicities other than Caucasians. To the human eyes, Vanilla VAE has better results for different races than our VAE. A possible reason is that the learning priority changed, which means that our model learns the facial expression of the Caucasians first, and 20 epochs are not enough for this model to learn it for all the races.
+- Our model is more sensitive to the light. These three images represent three extreme illumination situations. It shows that our model captures the illumination features of the original image better. However, our model produces less sharp reconstructions. Still, compared to Vanilla VAE, our reconstructions have more similar face regions to the original images.
 
 
 
@@ -36,9 +47,11 @@ X -->
 -  We tried to find\train a stable high quality network. [encountered problem with GPU,CUDA,CUDNN,torch conflict] -->
 
 
-## References
+### References
+- Pytorch VAE:https://github.com/AntixK/PyTorch-VAE
+- Ziwei Liu, Ping Luo, Xiaogang Wang, and Xiaoou Tang. Deep learning face attributes in the wild. In Proceedings of International Conference on Computer Vision (ICCV), December 2015.
 
-- ### VAE-GAN
+<!-- - ### VAE-GAN
   - [【MAIN Algo】Autoencoding beyond pixels using a learned similarity metric](https://arxiv.org/pdf/1512.09300.pdf)
 
 - ### VQA
@@ -49,14 +62,14 @@ X -->
   - [Generative Neural Network Based Image Compression](http://cs229.stanford.edu/proj2018/report/44.pdf) 
   - [VAE introduction](https://www.tensorflow.org/tutorials/generative/cvae)
   - [End-to-end Optimized Image Compression](https://arxiv.org/abs/1611.01704)
-
-## pretrained Model
+ -->
+<!-- ## pretrained Model
 
 - [ns-VQA【current testing...】](https://github.com/kexinyi/ns-vqa)
 - [VQA](https://modelzoo.co/model/vqapytorch#pretrained-models)
+ -->
 
-
-## image compression
-- [image compression and code](https://github.com/zhiqiang-zhu/Image-Compression-Papers-and-Code)
+<!-- ## image compression
+- [image compression and code](https://github.com/zhiqiang-zhu/Image-Compression-Papers-and-Code) -->
 
 
